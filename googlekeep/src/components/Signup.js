@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 // to show alert when user signs up
 import { AlertContext } from "../context/AlertState"
 import { TokenContext } from "../context/TokenState"
-import { NoteContext } from "../context/notes/NoteState"
+// import { NoteContext } from "../context/notes/NoteState"
 export default function Signup() {
   const AlertContextVal = useContext(AlertContext)
   const { setAlert } = AlertContextVal
   const { setToken } = useContext(TokenContext)
-  const { host } = useContext(NoteContext)
+  // const { host } = useContext(NoteContext)
 
   const navigate = useNavigate()
   // creating a state to store input values.
@@ -33,7 +33,7 @@ export default function Signup() {
     e.preventDefault()
     // checking if password and confirm password matches.
     if (credentials.password === credentials.cpassword) {
-      const response = await fetch(`${host}/auth/createuser`, {
+      const response = await fetch(`/auth/createuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

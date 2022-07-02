@@ -5,7 +5,7 @@ import { AlertContext } from "../context/AlertState"
 import { TokenContext } from "../context/TokenState"
 export default function Login() {
   // getting setUserName from NoteContext to set username in navbar.
-  const { setUserName, host } = useContext(NoteContext)
+  const { setUserName } = useContext(NoteContext)
   const { setAlert } = useContext(AlertContext)
   const { setToken } = useContext(TokenContext)
 
@@ -29,7 +29,7 @@ export default function Login() {
   async function handleSubmit(e) {
 
     e.preventDefault()
-    const response = await fetch(`${host}/auth/login`, {
+    const response = await fetch(`/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
