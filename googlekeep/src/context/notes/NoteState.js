@@ -17,15 +17,7 @@ export const NoteContext = createContext();
 
 const NoteState = (props) => {
   // creating host variable to save url for simplicity.
-  let host
-  if (process.env.NODE_ENV === "development") {
-    host = process.env.REACT_APP_DEV_HOST
-  }
-  else if (process.env.NODE_ENV === "production") {
-    host = process.env.REACT_APP_PROD_HOST
-  }
-
-
+  let host = "http://localhost:5000"
 
   // creating notes state to store all notes. which we will receive from db.
   const [notes, setNotes] = useState([])
