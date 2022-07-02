@@ -1,5 +1,6 @@
 const connectToMongoDB = require("./db")
 const express = require('express')
+const path = require('path')
 const app = express()
 const cors = require("cors")
 app.use(cors())
