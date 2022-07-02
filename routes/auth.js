@@ -77,7 +77,7 @@ router.post("/createuser",
         // Catching the error if we couldn't add the user in our database.
         catch (err) {
             console.log(err.message)
-            res.status(500).send("Internal server error")
+            res.status(500).send(err, "Internal server error")
         }
 
     })
@@ -139,7 +139,7 @@ router.post("/login",
 
             // If something goes wrong... catch the error.   
         } catch (err) {
-            res.status(500).send("Internal server error")
+            res.status(500).send("Internal server error", err)
         }
 
 

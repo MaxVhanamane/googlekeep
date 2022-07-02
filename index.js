@@ -12,12 +12,13 @@ app.use("/auth", require("./routes/auth"))
 app.use("/notes", require("./routes/notes"))
 
 
-if (process.env.NODE_ENV === 'production') {
+console.log(__dirname)
+if (process.env.NODE_ENV === 'development') {
   // Serve any static files
-  app.use(express.static(path.join(__dirname, 'googlekeep/build')));
+  app.use(express.static(path.join(__dirname, '/googlekeep/build')));
   // Handle React routing, return all requests to React app
   app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'googlekeep/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '/googlekeep/build', 'index.html'));
   });
 }
 app.listen(port, () => {
