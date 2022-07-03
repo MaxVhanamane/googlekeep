@@ -109,7 +109,7 @@ export default function Signup() {
             </div>
             <div className="d-flex flex-column justify-content-between  align-items-center">
               <button type="submit" className=" d-grid col-6 btn btn-warning btn-sm ">Sign Up</button>
-              <span className="mt-2 text-center">Have an account?<Link className=" text-decoration-none my-1" to="/login"><a > Log in now</a></Link></span>
+              <span className="mt-2 text-center">Have an account?<Link className=" text-decoration-none my-1" to="/login"> Log in now</Link></span>
             </div>
           </form>
 

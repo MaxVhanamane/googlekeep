@@ -106,7 +106,7 @@ export default function Login() {
             <div className="d-flex justify-content-between ">
               <button type="submit" className="me-2 btn btn-warning btn-sm">Login</button>
 
-              <Link className="ms-2 link-primary text-decoration-none my-1" to="/signup"> <a >Create account</a></Link>
+              <Link className="ms-2 link-primary text-decoration-none my-1" to="/signup"> Create account</Link>
             </div>
           </form>
         </div>
