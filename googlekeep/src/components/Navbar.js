@@ -90,7 +90,7 @@ export default function Navbar() {
             user is logged in) which will disapear only when I refresh the page to avoid that from happening I am using state instead of using localStorage.getItem("token") direactly */}
             {token ?
 
-              <div className="d-flex">
+              <div className="d-flex justify-content-end">
 
                 {/* using fontawesome to get user and logout icon. it's js is added in index.js */}
                 <i className="nav-item my-auto  mx-1  fa-solid fa-user " style={{ color: "#FFF", cursor: "auto" }}> </i>

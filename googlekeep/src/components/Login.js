@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { NoteContext } from "../context/notes/NoteState"
 import { AlertContext } from "../context/AlertState"
 import { TokenContext } from "../context/TokenState"
+
 export default function Login() {
   // getting setUserName from NoteContext to set username in navbar.
-  const { setUserName } = useContext(NoteContext)
+  const { setUserName, host } = useContext(NoteContext)
   const { setAlert } = useContext(AlertContext)
   const { setToken } = useContext(TokenContext)
 
@@ -29,7 +30,7 @@ export default function Login() {
   async function handleSubmit(e) {
 
     e.preventDefault()
-    const response = await fetch(`/auth/login`, {
+    const response = await fetch(`${host}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -86,6 +87,7 @@ export default function Login() {
     localStorage.removeItem("userName")
 
   }
+
   return (
     <div className=" container-fluid" >
       <div className="row">
@@ -101,8 +103,11 @@ export default function Login() {
               <label htmlFor="password" className="form-label">Password</label>
               <input name="password" type="password" className="form-control" id="password" onChange={handleChange} value={credentials.password} />
             </div>
+            <div className="d-flex justify-content-between ">
+              <button type="submit" className="me-2 btn btn-warning btn-sm">Login</button>
 
-            <button type="submit" className="btn btn-warning">Login</button>
+              <Link className="ms-2 link-primary text-decoration-none my-1" to="/signup"> <a >Create account</a></Link>
+            </div>
           </form>
         </div>
         <div className="col-md-3 col-lg-4 col-sm-2 col-xs-2"></div>

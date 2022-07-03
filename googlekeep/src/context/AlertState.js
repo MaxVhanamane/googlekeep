@@ -14,11 +14,8 @@ function AlertState(props) {
         message: ""
     })
 
-
-
-
     return (
-        <AlertContext.Provider value={{ alert, setAlert,token, setToken }}>
+        <AlertContext.Provider value={{ alert, setAlert, token, setToken }}>
             {/* Provider will give access to all the above states and functions to the components which are in props.children */}
             {props.children}
         </AlertContext.Provider>

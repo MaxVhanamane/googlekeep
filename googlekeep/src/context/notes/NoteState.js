@@ -17,15 +17,8 @@ export const NoteContext = createContext();
 
 const NoteState = (props) => {
   // creating host variable to save url for simplicity.
-  let host
-  if (process.env.NODE_ENV === "development") {
-    host = process.env.REACT_APP_DEV_HOST
-  }
-  else if (process.env.NODE_ENV === "production") {
-    host = process.env.REACT_APP_PROD_HOST
-  }
-
-
+  let host = process.env.REACT_APP_HOST
+  console.log("ye wala host", host)
   // creating notes state to store all notes. which we will receive from db.
   const [notes, setNotes] = useState([])
 
@@ -48,7 +41,7 @@ const NoteState = (props) => {
   async function fetchAllNotes() {
 
     // this is how you send api request when you want to send data in headers.
-    const response = await fetch(`/notes/fetchallnotes`, {
+    const response = await fetch(`${host}/notes/fetchallnotes`, {
       method: 'GET',
       // sending data in headers so that I can use it in backend.
       headers: {
@@ -73,7 +66,7 @@ const NoteState = (props) => {
   // creating a function to add a note
   async function addNote(title, description, tag) {
 
-    const response = await fetch(`/notes/addnote`, {
+    const response = await fetch(`${host}/notes/addnote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -105,7 +98,7 @@ const NoteState = (props) => {
 
   // creating a function to delete notess
   async function deleteNote(id) {
-    const response = await fetch(`/notes/deletenote/${id}`, {
+    const response = await fetch(`${host}/notes/deletenote/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -140,7 +133,7 @@ const NoteState = (props) => {
   // creating a function to update a note.
 
   async function updateNote(id, title, description, tag) {
-    const response = await fetch(`/notes/updatenote/${id}`, {
+    const response = await fetch(`${host}/notes/updatenote/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

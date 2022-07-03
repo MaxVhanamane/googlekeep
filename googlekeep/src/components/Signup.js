@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 // to show alert when user signs up
 import { AlertContext } from "../context/AlertState"
 import { TokenContext } from "../context/TokenState"
-// import { NoteContext } from "../context/notes/NoteState"
+import { NoteContext } from "../context/notes/NoteState"
 export default function Signup() {
   const AlertContextVal = useContext(AlertContext)
   const { setAlert } = AlertContextVal
   const { setToken } = useContext(TokenContext)
-  // const { host } = useContext(NoteContext)
+  const { host } = useContext(NoteContext)
 
   const navigate = useNavigate()
   // creating a state to store input values.
@@ -33,7 +33,7 @@ export default function Signup() {
     e.preventDefault()
     // checking if password and confirm password matches.
     if (credentials.password === credentials.cpassword) {
-      const response = await fetch(`/auth/createuser`, {
+      const response = await fetch(`${host}/auth/createuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,8 +107,10 @@ export default function Signup() {
               <label htmlFor="cpassword" className="form-label">Confirm Password</label>
               <input name="cpassword" type="password" className="form-control" id="cpassword" onChange={handleChange} minLength="5" value={credentials.cpassword} />
             </div>
-
-            <button type="submit" className="btn btn-warning">Sign Up</button>
+            <div className="d-flex flex-column justify-content-between  align-items-center">
+              <button type="submit" className=" d-grid col-6 btn btn-warning btn-sm ">Sign Up</button>
+              <span className="mt-2 text-center">Have an account?<Link className=" text-decoration-none my-1" to="/login"><a > Log in now</a></Link></span>
+            </div>
           </form>
 
         </div>
