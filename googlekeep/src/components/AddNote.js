@@ -66,9 +66,9 @@ export default function AddNote() {
   }
 
   return (
-    <div className="d-flex justify-content-center container my-5">
+    <div className=" container my-5">
       <ClickAwayListener onClickAway={handleClickAway}>
-        <form className="add-note ">
+        <form className="add-note">
           {isExpanded ? <input name="title" placeholder="Title" onChange={handleChange} value={addNoteState.title} autoFocus /> : null}
           <textarea name="description" placeholder="Take a note..." rows={isExpanded ? "3" : "1"} onChange={handleChange} value={addNoteState.description} onClick={handleExpansion} />
           {isExpanded && <input type="text" name="tag" placeholder="Tag (eg. general,office,etc)" onChange={handleChange} value={addNoteState.tag} />}
