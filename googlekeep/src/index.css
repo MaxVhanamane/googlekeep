@@ -74,7 +74,7 @@ button:hover {
 }
 
 form.add-note {
-  width: 35rem;
+  width: 50%;
   margin: 30px auto 30px auto;
   background: #fff;
   padding: 15px;
