@@ -98,7 +98,7 @@ export default function Navbar() {
                 <p className="mx-2 my-auto" style={{
                   display: "inline-block", color: "#FFF"
                 }}>Welcome <span style={{ textTransform: "capitalize" }}>{userName}</span></p>
-                <i className=" my-auto ms-5 fa-solid fa-arrow-right-from-bracket" style={{ color: "#FFF" }} onClick={handleLogout}></i>
+                <i className=" my-auto ms-5 me-3 fa-solid fa-arrow-right-from-bracket" style={{ color: "#FFF" }} onClick={handleLogout}></i>
 
               </div>
 
