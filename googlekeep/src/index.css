@@ -206,9 +206,9 @@ i {
 }
 
 
-@media (max-width:776px) {
+@media (max-width:576px) {
   form.add-note {
-    width: 80vw;
+    width: 80%;
 
   }
 
