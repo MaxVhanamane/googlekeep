@@ -66,7 +66,7 @@ export default function AddNote() {
   }
 
   return (
-    <div className="flex justify-content-center container my-5">
+    <div className="d-flex justify-content-center container my-5">
       <ClickAwayListener onClickAway={handleClickAway}>
         <form className="add-note ">
           {isExpanded ? <input name="title" placeholder="Title" onChange={handleChange} value={addNoteState.title} autoFocus /> : null}
