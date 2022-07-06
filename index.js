@@ -12,7 +12,6 @@ app.use("/auth", require("./routes/auth"))
 app.use("/notes", require("./routes/notes"))
 
 
-console.log(__dirname)
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '/googlekeep/build')));
